@@ -1,0 +1,123 @@
+/* 共通要素ここから */
+body {
+	background: #f1ede0;
+}
+
+/* 共通要素ここまで */
+
+
+
+/* 個人戦予選リーグここから */
+
+.league_individual {
+	display: inline-table;
+	margin-top: 5px;
+	margin-left: 5px;
+	border : solid 2px #000000;
+	border-collapse : collapse;
+}
+	.league_individual > thead > tr > th,
+	.league_individual > thead > tr > td,
+	.league_individual > tbody > tr > th,
+	.league_individual > tbody > tr > td
+	{
+		min-width : 3em;
+		height : 2em;
+		padding : 0.3em;
+		border : solid 2px #000000;
+		text-align: center;
+	}
+	.league_individual > tbody > tr > .slash {
+		background: linear-gradient(36deg, #f1ede0, #f1ede0 48%, #000000 49%, #000000 51%, #f1ede0 52%, #f1ede0);
+	}
+	.league_individual > caption {
+		font-weight: bolder;
+		font-size: 30px;
+	}
+	
+/* 個人戦予選リーグここまで */
+
+/* 団体戦リーグここから */
+
+.league_team{
+	display: inline-table;
+	margin-top: 5px;
+	margin-left: 5px;
+	border : solid 2px #000000;
+	border-collapse : collapse;
+}
+	.league_team > thead > tr > th,
+	.league_team > thead > tr > td,
+	.league_team > tbody > tr > th,
+	.league_team > tbody > tr > td
+	{
+		min-width : 3em;
+		padding : 0.3em;
+		border : solid 2px #000000;
+		text-align: center;
+	}
+	.league_team > tbody > tr > .slash {
+		background: linear-gradient(23deg, #f1ede0, #f1ede0 48%, #000000 49%, #000000 51%, #f1ede0 52%, #f1ede0);
+	}
+	.league_team > tbody > tr > .win {
+		color: red;
+	}
+	.league_team > caption {
+		font-weight: bolder;
+		font-size: 30px;
+	}
+
+/* 団体戦リーグここまで */
+
+/* スイスドローここから */
+
+.swiss_tornament {
+	display: inline-table;
+	margin-top: 5px;
+	margin-left: 5px;
+	border : solid 2px #000000;
+	border-collapse : collapse;
+}
+	.swiss_tornament > thead > tr > th,
+	.swiss_tornament > thead > tr > td,
+	.swiss_tornament > tbody > tr > th,
+	.swiss_tornament > tbody > tr > td
+	{
+		min-width : 3em;
+		padding : 0.3em;
+		border : solid 2px #000000;
+		text-align: center;
+	}
+	.swiss_tornament > caption {
+		font-weight: bolder;
+		font-size: 30px;
+	}
+
+/* スイスドローここまで */
+
+
+/* トーナメント要素ここから */
+
+.tournament {
+	margin-left: 0px;
+	margin-right: auto;
+	text-align: left;
+}
+	.tournament + *{
+		clear: both;
+	}
+	.tournament > ul {
+		float: left;
+		margin-right: 10px;
+		text-align: right;
+		list-style-type: none;
+	}
+	.tournament > ul > li{
+		height: 20px;
+	}
+	.tournament > canvas {
+		margin-top: 10px;
+		float: left;
+	}
+
+/* トーナメント要素ここまで */

@@ -1,2 +1,3 @@
 # AutomaticLeagueGenerator
 中部学生将棋連盟のリーグ表をcsvから書き出すためのソフトです
+それ以外にも使えるかもしれません
