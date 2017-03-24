@@ -33,16 +33,20 @@ class Compornent:
         self.itemcounter[itemname] = 0
         self.itemlength[itemname] = len(itemlist)
 
-    def appendreplace(self, itemname, before, after):
-        self.replacer[itemname] = (before, after)
-
+    def appendreplace(self, itemname, replacelist):
+        self.replacer[itemname] = replacelist
+        
     def getitem(self, itemname):
         i = self.itemcounter[itemname]
         length = self.itemlength[itemname]
         if i >= length:
             return ''
         self.itemcounter[itemname] += 1
-        return self.items[itemname][i]
+        retitem = self.items[itemname][i]
+        if itemname in self.replacer:
+            for t in self.replacer[itemname]:
+                retitem = retitem.replace(t[0], t[1])
+        return retitem
 
     def resetalliterator(self, itemname):
         for item in self.itemname:
@@ -141,8 +145,10 @@ def getCsvData(inputdir, replacedir):
         temp = filename.split('.')
         compornentfile = temp[0] + '.csv'
         compornentitem = temp[1]
+        appendlist = []
         for k,v in csv.items():
-            compornents[compornentfile].appendreplace(compornentitem, k, v)
+            appendlist.append((k,v))
+        compornents[compornentfile].appendreplace(compornentitem, appendlist)
     
     return generalDicts, compornents
 
