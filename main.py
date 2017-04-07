@@ -6,8 +6,8 @@ import codecs
 import re
 import copy
 import json
+import csv
 
-from pythonlib import csvmng
 
 class Compornent:
     filename = ''
@@ -116,7 +116,57 @@ class Token:
     def getcsvfileandtag(self):
         return self.csvfile, self.csvtag
         
+def getListFromCSV(csvfilename):
+    """Get list from csvfile."""
 
+    csvlist = []
+    with codecs.open(csvfilename, 'r', 'shift_jis') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            csvlist.append(row)
+    #f.close
+    return csvlist
+
+def getDictionaryFromCSVInTopTitle(csvfilename):
+    """Get dictionary from csvfile."""
+    
+    csvlist = getListFromCSV(csvfilename)
+    csvdic  = csvlist2csvdicInTopTitle(csvlist)
+    return csvdic
+
+def getDictionaryFromCSVInSideTitle(csvfilename):
+    """Get dictionary from csvfile."""
+    
+    csvlist = getListFromCSV(csvfilename)
+    csvdic  = csvlist2csvdicInSideTitle(csvlist)
+    return csvdic
+
+def csvlist2csvdicInTopTitle(beforelist):
+    csvtitle = []
+    csvdictionary = {}
+    
+    for title in beforelist[0]:
+        csvtitle.append(title)
+        csvdictionary[title] = []
+
+    for row in beforelist[1:]:
+        for i, cell in enumerate(row):
+            csvdictionary[csvtitle[i]].append(cell)
+    
+
+    return csvdictionary
+
+def csvlist2csvdicInSideTitle(beforelist):
+    csvtitle = []
+    csvdictionary   = {}
+    titledictionary = {}
+    beforelist.pop(0)
+    
+    for row in beforelist:
+        title = row.pop(0)
+        data = row.pop(0)
+        csvdictionary[title] = data
+    return csvdictionary
 
 def removeStartPeriodFileFromList(filelist):
     returnlist = []
@@ -128,11 +178,11 @@ def removeStartPeriodFileFromList(filelist):
 def getCsvData(inputdir, replacedir):
     filelist = os.listdir(inputdir)
     filelist = removeStartPeriodFileFromList(filelist)
-    generalDicts = csvmng.getDictionaryFromCSVInSideTitle(inputdir + '__general.csv')
+    generalDicts = getDictionaryFromCSVInSideTitle(inputdir + '__general.csv')
     
     compornents = {}
     for filename in filelist:
-        csv = csvmng.getDictionaryFromCSVInTopTitle(inputdir + filename)
+        csv = getDictionaryFromCSVInTopTitle(inputdir + filename)
         compornent = Compornent(filename)
         for k, v in csv.items():
             compornent.appenditem(k, v)
@@ -141,7 +191,7 @@ def getCsvData(inputdir, replacedir):
     filelist = os.listdir(replacedir)
     filelist = removeStartPeriodFileFromList(filelist)
     for filename in filelist:
-        csv = csvmng.getDictionaryFromCSVInSideTitle(replacedir + filename)
+        csv = getDictionaryFromCSVInSideTitle(replacedir + filename)
         temp = filename.split('.')
         compornentfile = temp[0] + '.csv'
         compornentitem = temp[1]
