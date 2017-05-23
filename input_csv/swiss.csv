@@ -1,0 +1,9 @@
+number,name,school,year,grade,vs1_result,vs1_handicap,vs1_enemy,vs2_result,vs2_handicap,vs2_enemy,vs3_result,vs3_handicap,vs3_enemy,vs4_result,vs4_handicap,vs4_enemy,vs5_result,vs5_handicap,vs5_enemy,vs6_result,vs6_handicap,vs6_enemy,wins,result
+1,aaa aaa,AAA,4,初心者,l,平手,2,l,平手,2,l,平手,2,l,平手,2,l,平手,2,l,平手,2,0,5
+2,bbb bbb,BBB,2,1級,w,平手,1,w,平手,1,w,平手,1,w,平手,1,w,平手,1,w,平手,1,6,1
+3,ccc ccc,CCC,1,初段,l,平手,4,l,平手,4,l,平手,4,l,平手,4,l,平手,4,l,平手,4,0,5
+4,ddd ddd,DDD,1,二段,w,平手,3,w,平手,3,w,平手,3,w,平手,3,w,平手,3,w,平手,3,6,1
+5,eee eee,EEE,1,三段,l,平手,6,l,平手,6,l,平手,6,l,平手,6,l,平手,6,l,平手,6,0,5
+6,fff fff,FFF,4,四段,w,平手,5,w,平手,5,w,平手,5,w,平手,5,w,平手,5,w,平手,5,6,1
+7,ggg ggg,GGG,5,五段,l,平手,8,l,平手,8,l,平手,8,l,平手,8,l,平手,8,l,平手,8,0,5
+8,,,,六段,w,平手,7,w,平手,7,w,平手,7,w,平手,7,w,平手,7,w,平手,7,6,1
