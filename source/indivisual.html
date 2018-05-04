@@ -4,58 +4,86 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
 	<meta http-equiv="Content-Language" content="ja">
 	<meta http-equiv="Content-Style-Type" content="text/css">
-	<title>平成[[year]]年度中部[[tourname]] | 中部学生将棋連盟</title>
+	<title>平成[[year]]年度中部[[tourname]]＜予選＞ | 中部学生将棋連盟</title>
 	<link rel="stylesheet" type="text/css" href="../css/result.css">
 	<meta name="description" content="中部学生将棋連盟の活動を記録しているホームページです。">
 	<meta name="keywords" content="将棋,学生">
 </head>
 <body>
-	<h1>平成[[year]]年度中部[[tourname]]</h1>
+	<h1>平成[[year]]年度中部[[tourname]]＜予選＞</h1>
 	
 	<p>
-		参加者数:[[all_players]]名
+		予選参加者数:[[qualify_players]]名<br>
+		全体参加者数:[[all_players]]名
 	</p>
 	
 	
-	<h2>十傑戦スイスドロー</h2>
-	<table class="swiss_tornament">
-		<caption>十傑戦結果</caption>
+	<h2>予選リーグ</h2>
+	
+	[[ROOP 'league.csv']]
+	<table class="league_individual">
+		<caption>[[league.__roopcount]]組</caption>
 		<thead>
 			<tr>
-				<th class="number">番号</th>
-				<th class="name">名前</th>
-				<th class="grade">段・級位</th>
-				<th class="vs">一回戦</th>
-				<th class="vs">二回戦</th>
-				<th class="vs">三回戦</th>
-				<th class="vs">四回戦</th>
-				<th class="vs">五回戦</th>
-				<th class="vs">六回戦</th>
-				<th class="wins">勝数</th>
-				<th class="result">順位</th>
+				<th class="number"></th>
+				<th class="name">氏名<br>(大学)</th>
+				<th class="vs">1</th>
+				<th class="vs">2</th>
+				<th class="vs">3</th>
+				<th class="vs">4</th>
+				<th class="result">結果</th>
 			</tr>
 		</thead>
 		<tbody>
-			[[ROOP 'swiss.csv']]
 			<tr>
-				<th class="number">[[swiss.number]]</th>
-				<th class="name">[[swiss.name]]<br>([[swiss.school]][[swiss.year]])</th>
-				<th class="grade">[[swiss.grade]]</th>
-				<td class="vs">[[swiss.vs1_result]]([[swiss.vs1_handicap]])<br>vs [[swiss.vs1_enemy]]</td>
-				<td class="vs">[[swiss.vs2_result]]([[swiss.vs2_handicap]])<br>vs [[swiss.vs2_enemy]]</td>
-				<td class="vs">[[swiss.vs3_result]]([[swiss.vs3_handicap]])<br>vs [[swiss.vs3_enemy]]</td>
-				<td class="vs">[[swiss.vs4_result]]([[swiss.vs4_handicap]])<br>vs [[swiss.vs4_enemy]]</td>
-				<td class="vs">[[swiss.vs5_result]]([[swiss.vs5_handicap]])<br>vs [[swiss.vs5_enemy]]</td>
-				<td class="vs">[[swiss.vs6_result]]([[swiss.vs6_handicap]])<br>vs [[swiss.vs6_enemy]]</td>
-				<td class="wins">[[swiss.wins]]</td>
-				<td class="result">[[swiss.result]]</td>
+				<th class="number">1</th>
+				<th class="name">[[league.name]]<br>([[league.school]][[league.year]])</th>
+				<td class="vs slash">[[league.vs1]]</td>
+				<td class="vs">[[league.vs2]]</td>
+				<td class="vs">[[league.vs3]]</td>
+				<td class="vs">[[league.vs4]]</td>
+				<td class="result">[[league.result]]</td>
 			</tr>
-			[[/ROOP]]
+			<tr>
+				<th class="number">2</th>
+				<th class="name">[[league.name]]<br>([[league.school]][[league.year]])</th>
+				<td class="vs">[[league.vs1]]</td>
+				<td class="vs slash">[[league.vs2]]</td>
+				<td class="vs">[[league.vs3]]</td>
+				<td class="vs">[[league.vs4]]</td>
+				<td class="result">[[league.result]]</td>
+			</tr>
+			<tr>
+				<th class="number">3</th>
+				<th class="name">[[league.name]]<br>([[league.school]][[league.year]])</th>
+				<td class="vs">[[league.vs1]]</td>
+				<td class="vs">[[league.vs2]]</td>
+				<td class="vs slash">[[league.vs3]]</td>
+				<td class="vs">[[league.vs4]]</td>
+				<td class="result">[[league.result]]</td>
+			</tr>
+			<tr>
+				<th class="number">4</th>
+				<th class="name">[[league.name]]<br>([[league.school]][[league.year]])</th>
+				<td class="vs">[[league.vs1]]</td>
+				<td class="vs">[[league.vs2]]</td>
+				<td class="vs">[[league.vs3]]</td>
+				<td class="vs slash">[[league.vs4]]</td>
+				<td class="result">[[league.result]]</td>
+			</tr>
 		</tbody>
 	</table>
-	<br>
+	
+	[[/ROOP]]
+	
+	
+	<h2>二次予選</h2>
+	<p>
+        [[ROOP 'second.csv']]
+		○ [[second.winner]] vs [[second.loser]] ●<br>[[/ROOP]]
+	</p>
+	
 	
 	<p><a href="../result.html">戻る</a></p>
-	
 </body>
 </html>
