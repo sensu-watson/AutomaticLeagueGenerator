@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import sys
 import codecs
 import re
 import copy
@@ -120,7 +121,7 @@ def getListFromCSV(csvfilename):
     """Get list from csvfile."""
 
     csvlist = []
-    with codecs.open(csvfilename, 'r', 'shift_jis') as f:
+    with codecs.open(csvfilename, 'r', 'cp932') as f:
         reader = csv.reader(f)
         for row in reader:
             csvlist.append(row)
@@ -310,11 +311,39 @@ def outputtofile(outputfile, outputstring):
     f.write(outputstring)
     f.close()
 
+def selecttemplate(sourcehtml_dir):
+    source_list = os.listdir(sourcehtml_dir)
+
+    if len(source_list) == 0:
+        print('テンプレートがありません．')
+        forcedtermination()
+
+    if len(source_list) == 1:
+        return sourcehtml_dir + source_list[0]
+    
+    print('テンプレートファイルが複数あります．\n利用するテンプレートの番号を入力してください．')
+    for i, filename in enumerate(source_list):
+        print(str(i) + ' : ' + filename)
+        
+    num = int(input('番号 : '))
+
+    if num < 0 or len(source_list) <= num:
+        print('該当番号のテンプレートはありません．')
+        forcedtermination()
+
+    return sourcehtml_dir + source_list[num]
+
+def forcedtermination():
+    print('強制終了します．')
+    sys.exit()
+
 if __name__ == '__main__':
     inputdir = 'input_csv/'
     replacedir = 'tag_replace_csv/'
-    sourcehtml = 'source/source.html'
+    sourcehtml_dir = 'source/'
     outputfile = 'generate/generate.html'
+
+    sourcehtml = selecttemplate(sourcehtml_dir)
 
     generalDicts, compornents = getCsvData(inputdir, replacedir)
     tokenlist = getHtmlData(sourcehtml)
